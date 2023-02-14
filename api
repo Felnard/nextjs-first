@@ -1,0 +1,16 @@
+
+const API_KEY = "api_key=1bfdbff05c2698dc917dd28c08d41096";
+let upcoming =
+  "https://api.themoviedb.org/3/movie/upcoming?api_key=1bfdbff05c2698dc917dd28c08d41096&language=en-US&page=1";
+
+const image = "http://image.tmdb.org/t/p/w500/";
+
+const search_url =
+  "https://api.themoviedb.org/3/search/movie?api_key=1bfdbff05c2698dc917dd28c08d41096&query=";
+
+const noImage =
+  "https://media.istockphoto.com/vectors/cinema-poster-with-cola-filmstrip-and-clapper-vector-vector-id1244034031?k=20&m=1244034031&s=612x612&w=0&h=WFpMBZ7PfLCJrK4F9764OsAls0NbOJOza8CIiP3Yfc8=";
+
+const details_url = "https://api.themoviedb.org/3/movie/";
+
+const similar_url = "https://api.themoviedb.org/3/movie/";
