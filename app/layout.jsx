@@ -16,6 +16,12 @@ export default function RootLayout({ children }) {
       */}
       <head />
       <body >
+        <nav>
+
+          <form id="form">
+            <input id="search" type="search" placeholder="Search..." />
+          </form>
+        </nav>
         {children}
       </body>
     </html>
