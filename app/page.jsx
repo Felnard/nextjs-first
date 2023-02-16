@@ -7,7 +7,6 @@ async function movies() {
   }
 
   return res.json();
-
 }
 
 export default async function Home() {
@@ -25,7 +24,6 @@ export default async function Home() {
             // overview={movie.overview}
             release_date={movie.release_date}
             img_src={movie.poster_path}
-
 
           />
         ))}
