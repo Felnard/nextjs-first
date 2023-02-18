@@ -1,6 +1,5 @@
-import Movie from '../../Movie'
-import Button from '../../components/ui/button'
-import Details from '../../components/ui/details'
+import Movie from '../../components/Movie'
+import DetailsCard from './components/DetailsCard'
 
 export default async function MovieDetail({ params }) {
 
@@ -17,56 +16,25 @@ export default async function MovieDetail({ params }) {
     const selectedMovie = await responses[0].json()
     const similarMovie = await responses[1].json()
 
-    // if (!res.ok) {
-    //     // This will activate the closest `error.js` Error Boundary
-    //     throw new Error('Failed to fetch data');
-    // }
-
     return (
         <>
-            <section className="flex">
+            <section className="flex justify-center m-5 mt-32">
 
                 <div className="photo">
                     <img src={`http://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`} alt="" />
                 </div>
-                <div className="details">
-                    <h1 className="title">{selectedMovie.title}</h1>
-                    <ul>
-                        <li className="date">{selectedMovie.release_date}</li> |
-                        <li className="duration">{selectedMovie.runtime ?? "N/A"}</li>
-                    </ul>
+                <DetailsCard
+                    title={selectedMovie.title}
+                    release_date={selectedMovie.release_date}
+                    runtime={selectedMovie.runtime ?? "N/A"}
+                    overview={selectedMovie.overview}
+                    country={selectedMovie.country ?? "N/A"}
+                    vote_average={selectedMovie.vote_average == 0 ? "N/A" : selectedMovie.vote_average}
+                    companies={selectedMovie.companies ?? "N/A"}
+                />
 
-                    <div className="more">
-                        <div className="buttons">
-
-                            <Button name={'Watch Now'} />
-                            <Button name={'Trailer'} />
-                            <Button name={'Share'} />
-                        </div>
-
-                        <p className="summary">
-                            {selectedMovie.overview} </p>
-
-                        <div className="bottom">
-                            <Details
-                                title={'COUNTRY'}
-                                info={selectedMovie.country ?? "N/A"}
-                            />
-                            <Details
-                                title={'RATINGS'}
-                                info={selectedMovie.vote_average == 0 ? "N/A" : selectedMovie.vote_average}
-                            />
-                            <Details
-                                title={'STUDIO'}
-                                info={selectedMovie.companies ?? "N/A"}
-                            />
-
-                            {/* <p>GENRE<span className="genre">{details}</span></p> */}
-                        </div>
-                    </div>
-                </div>
             </section>
-            <h3 className="title">Similar Movies</h3>
+            <h3 className="text-xl bg-sky-700 p-4">Similar Movies</h3>
             <section className='grid gap-16 grid-cols-fluid items-center'>
                 {similarMovie.results.map(movie => (
                     <Movie

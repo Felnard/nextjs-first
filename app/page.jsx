@@ -1,4 +1,4 @@
-import Movie from './Movie';
+import Movie from './components/Movie';
 async function movies() {
   const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`)
   if (!res.ok) {
@@ -13,8 +13,8 @@ export default async function Home() {
   const response = await movies()
   // console.log(response)
   return (
-    <main>
-      <div className='grid gap-16 grid-cols-fluid items-center'>
+    <main className="">
+      <div className='grid grid-cols-fluid items-center gap-6 mt-28 '>
 
         {response.results.map((movie) => (
           <Movie

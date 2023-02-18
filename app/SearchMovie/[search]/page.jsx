@@ -1,5 +1,5 @@
 
-import Movie from '../../Movie';
+import Movie from '../../components/Movie';
 
 export default async function Search({ params }) {
     const { search } = params
@@ -13,14 +13,13 @@ export default async function Search({ params }) {
     const data = await res.json()
 
     return (
-        <div className='grid gap-16 grid-cols-fluid items-center'>
 
+        <div className='grid grid-cols-fluid items-center gap-6 mt-28 '>
             {data.results.map((movie) => (
                 <Movie
                     key={movie.id}
                     id={movie.id}
                     title={movie.title}
-                    // overview={movie.overview}
                     release_date={movie.release_date}
                     img_src={movie.poster_path}
                 />

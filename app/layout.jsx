@@ -1,9 +1,6 @@
-"use client"
-
 import './globals.css'
-import { useState } from "react";
 import { Courier_Prime } from '@next/font/google'
-import Link from 'next/link';
+import NavBar from './components/NavBar';
 
 const montserrat = Courier_Prime({
   weight: ['400', '700'],
@@ -11,12 +8,6 @@ const montserrat = Courier_Prime({
   variable: '--font-montserrat'
 })
 export default function RootLayout({ children }) {
-
-  const [query, setQuery] = useState("");
-
-  // function searchQuery(e) {
-  //   setQuery(e.target.value)
-  // }
 
   return (
     <html lang="en">
@@ -26,12 +17,7 @@ export default function RootLayout({ children }) {
       */}
       <head />
       <body >
-        <nav>
-          <input id="search" type="search" placeholder="Search..." onChange={(e) => setQuery(e.target.value)} />
-          <Link href={`/SearchMovie/${query}`}>
-            Search
-          </Link>
-        </nav>
+        <NavBar />
         {children}
       </body>
     </html>
